@@ -26,14 +26,17 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+
 This project is a simple number guessing game built with Streamlit. The player must guess a secret number within a limited number of attempts. The game provides hints indicating whether the guess is too high or too low and keeps track of attempts and score.
 
 - [ ] Detail which bugs you found.
+
 1.The hint logic was reversed, causing the game to tell the user to go higher when the guess was already too high.
 2.The secret number was sometimes converted to a string during comparisons, which caused inconsistent behavior.
 3.The game logic was mixed directly inside the UI code, making debugging and testing difficult.
 
 - [ ] Explain what fixes you applied.
+
 1.Refactored the game logic into `logic_utils.py` for better separation of logic and UI.
 2.Corrected the `check_guess` logic so that hints match the correct comparison results.
 3.Removed the bug where the secret number sometimes became a string.

@@ -31,16 +31,21 @@ This project is a simple number guessing game built with Streamlit. The player m
 
 - [ ] Detail which bugs you found.
 
-1.The hint logic was reversed, causing the game to tell the user to go higher when the guess was already too high.
-2.The secret number was sometimes converted to a string during comparisons, which caused inconsistent behavior.
-3.The game logic was mixed directly inside the UI code, making debugging and testing difficult.
+- The hint logic was reversed, causing the game to tell the user to go higher when the guess was already too high.
+
+- The secret number was sometimes converted to a string during comparisons, which caused inconsistent behavior.
+
+- The game logic was mixed directly inside the UI code, making debugging and testing difficult.
 
 - [ ] Explain what fixes you applied.
 
-1.Refactored the game logic into `logic_utils.py` for better separation of logic and UI.
-2.Corrected the `check_guess` logic so that hints match the correct comparison results.
-3.Removed the bug where the secret number sometimes became a string.
-4.Verified the fixes using pytest and manual gameplay testing.
+- Refactored the game logic into `logic_utils.py` for better separation of logic and UI.
+
+- Corrected the `check_guess` logic so that hints match the correct comparison results.
+
+- Removed the bug where the secret number sometimes became a string.
+
+- Verified the fixes using pytest and manual gameplay testing.
 
 ## 📸 Demo
 ![Game Demo](game_demo.png)

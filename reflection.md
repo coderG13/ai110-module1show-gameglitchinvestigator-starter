@@ -1,29 +1,26 @@
 # 💭 Reflection: Game Glitch Investigator
 
-Answer each question in 3 to 5 sentences. Be specific and honest about what actually happened while you worked. This is about your process, not trying to sound perfect.
-
 ## 1. What was broken when you started?
 
-- What did the game look like the first time you ran it?
-- List at least two concrete bugs you noticed at the start  
-  (for example: "the secret number kept changing" or "the hints were backwards").
+Bug 1 (hints backwards): When my guess was higher than the secret, the game told me “Go HIGHER!” instead of “Go LOWER.” I expected a “Too High → go lower” hint, but it gave the opposite.
+
+Bug 2 (type/glitchy comparisons): The game behaves inconsistently across attempts because the secret number sometimes gets treated like a string instead of an integer. This caused wrong outcomes/hints even when I used the debug tab to see the secret.
+
+Bug 3 (difficulty/range mismatch): The UI difficulty shows a range (ex: Easy 1–20), but the game text and/or New Game logic doesn’t consistently use that range (it still acts like 1–100).
 
 ---
 
 ## 2. How did you use AI as a teammate?
 
-- Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
-- Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
+I used the Claude AI extension in VS Code while debugging the game logic. I asked Claude to look at the check_guess function because the hints in the game seemed wrong when I played it. Claude pointed out that the hint messages were reversed, so guesses higher than the secret should return “Too High” and guesses lower should return “Too Low”. After applying that change, I ran the tests and the Streamlit app to confirm that the hints were now correct.
+
+One suggestion from Claude that was not very helpful was keeping extra logic to handle string comparisons inside the function. Since I fixed the bug where the secret number was sometimes converted to a string, that extra code was unnecessary. I removed it and confirmed the simpler logic still worked by running the tests again.
 
 ---
 
 ## 3. Debugging and testing your fixes
 
-- How did you decide whether a bug was really fixed?
-- Describe at least one test you ran (manual or using pytest)  
-  and what it showed you about your code.
-- Did AI help you design or understand any tests? How?
+To check if the bug was really fixed, I used both automated tests and manual testing. I ran pytest in the terminal and confirmed that all the provided tests passed successfully. After that, I ran the Streamlit game and used the developer debug panel to see the secret number while making guesses. This helped me confirm that the hints matched the correct outcomes when the guess was too high or too low. AI helped me understand what scenarios to test and guided me toward verifying the fix properly.
 
 ---
 

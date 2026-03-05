@@ -27,7 +27,7 @@ It wrote the code, ran away, and now the game is unplayable.
 
 - [ ] Describe the game's purpose.
 
-This project is a simple number guessing game built with Streamlit. The player must guess a secret number within a limited number of attempts. The game provides hints indicating whether the guess is too high or too low and keeps track of attempts and score.
+This project is a simple number guessing game built. The player must guess a secret number within a limited number of attempts. The game provides hints indicating whether the guess is too high or too low and keeps track of attempts and score.
 
 - [ ] Detail which bugs you found.
 
